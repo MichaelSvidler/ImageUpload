@@ -1,0 +1,24 @@
+CREATE SCHEMA hadshanut;
+
+CREATE TABLE hadshanut.acount(
+	user_id integer PRIMARY KEY,
+	username VARCHAR (50) UNIQUE NOT NULL,
+	password VARCHAR (50) NOT NULL
+);
+
+INSERT INTO hadshanut.acount (user_id, username,password ) VALUES (1, 'admin','admin' );
+INSERT INTO hadshanut.acount (user_id, username,password ) VALUES (2, 'MichealSvidler','hello123' );
+INSERT INTO hadshanut.acount (user_id, username,password ) VALUES (3, 'MosheFaerman','morning90' );
+INSERT INTO hadshanut.acount (user_id, username,password ) VALUES (4, 'HodayaLiberty','Shalom8' );
+INSERT INTO hadshanut.acount (user_id, username,password ) VALUES (5, 'Emily','123' );
+
+CREATE TABLE hadshanut.images(
+	image_id serial PRIMARY KEY,
+	path VARCHAR (200)  NOT NULL,
+user_id integer,
+	FOREIGN KEY (user_id) REFERENCES hadshanut.acount (user_id)
+);
+
+
+// delete 
+DELETE FROM hadshanut.images WHERE image_id = 21; 
